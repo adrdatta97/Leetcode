@@ -1,27 +1,22 @@
 class Solution:
     def leftRightDifference(self, nums: List[int]) -> List[int]:
-        lnum = len(nums)
-        nums2 = nums[::-1]
-        final_list = []
-        f_l = 0
-        lsum = [0]
-        rsum = [0]
-        sum = 0
-        sum2 = 0
-
-        for num in range(lnum - 1):
-            sum = sum + nums[num]
-            lsum.append(sum)
-
-        for i in range(lnum - 1):
-            sum2 = sum2 + nums2[i]
-            rsum.append(sum2)
-
-        reversed_rsum = rsum[::-1]
-        for i in range(lnum):
-            f_l = abs(lsum[i] - reversed_rsum[i])
-            final_list.append(f_l)
-
-        return final_list
+        l = 0
+        left_add = [0]
+        f = []
+        for i in range(len(nums)):
+          l += nums[i]
+          if len(left_add) <= len(nums)-1:
+            left_add.append(l)
+            
+        r = 0
+        right_add = [0]
+        for i in range(len(nums)):
+          r += nums[::-1][i]
+          if len(right_add) <= len(nums)-1:
+            right_add.append(r)
+            
+        for item in range(len(nums)):
+            f.append(abs(left_add[item] - right_add[::-1][item]))
+        return f
 
         
