@@ -4,7 +4,7 @@ class Solution:
         r = []
 
         def displaysubarr(nums):
-          res = [[]]
+          res = []
           for i in range(lnums + 1):
             for j in range(i+1, lnums+1):
               sub = nums[i : j]
@@ -13,7 +13,7 @@ class Solution:
 
         subarr = displaysubarr(nums)
 
-        for i in subarr[1:]:
+        for i in subarr:
           r.append(len(set(i))**2)
         
         return sum(r)
